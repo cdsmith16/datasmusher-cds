@@ -1,2 +1,122 @@
-<h1>Pages#design</h1>
-<p>Find me in app/views/pages/design.html.erb</p>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+        <li data-target="#myCarousel" data-slide-to="4" class=""></li>
+      </ol>
+      <div class="carousel-inner">
+      	<div class="item active">
+          <%= image_tag ("The Data.png") , :style => "opacity:0.3; filter:alpha(opacity=30);" , class: "featurette-image img-responsive" , data_src: "holder.js/900x500/auto" %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="text-success">Datasmusher Overview</h1>
+              <p class="text-success">The Datasmusher prototype is a basic webapp built using the Ruby on Rails framework, Bootstrap stylings, and hosted on Heroku servers with Postresql database. The examples use "School" as the main model, and each "<code>School</code>" has many "<code>Test_Score</code>s" which can be added, updated or deleted, as can the "<code>School</code>" itself. Prototype is still in progress.</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag ("Mapped Columns.png") , :style => "opacity:0.3; filter:alpha(opacity=30);", class: "featurette-image img-responsive" , data_src: "holder.js/900x500/auto" %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="text-success">Dynamically Map the Headers</h1>
+              <p class="text-success">The first and perhaps most difficult step in Datasmusher is dynamically mapping the headers. Datasmusher will used the header of incoming data to generate a ruby block that maps input data to the desired output columns.</p>
+              <p><a class="btn btn-lg btn-primary" href="#map-feature" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag ("Mapped Data.png") , :style => "opacity:0.3; filter:alpha(opacity=30);", class: "featurette-image img-responsive" , data_src: "holder.js/900x500/auto" %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="text-success">Load & Convert Data</h1>
+              <p class="text-success">The next step in Datasmusher is to load and "smush" the data all in one step. In the final version, Datasmusher will take in spreadsheet files, db's or even manually entered data and convert it to our datastore's headers using the mappings we generated.</p>
+              <p><a class="btn btn-lg btn-primary" href="#load-feature" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag ("Display Data.png") , :style => "opacity:0.3; filter:alpha(opacity=30);", class: "featurette-image img-responsive" , data_src: "holder.js/900x500/auto" %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="text-success">Display by School</h1>
+              <p class="text-success">The final step in the Datasmusher service is displaying data by school and allowing users to update said data.  Datasmusher will dynamically create views for each School's data listed in our format. </p>
+              <p><a class="btn btn-lg btn-primary" href="#display-feature" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <%= image_tag ("Scale Data.png") , :style => "opacity:0.3; filter:alpha(opacity=30);", class: "featurette-image img-responsive" , data_src: "holder.js/900x500/auto" %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1 class="text-success">Test & Scale</h1>
+              <p class="text-success">Datasmusher's testing suite will automatically test each of the <code>CRUD</code> methods used in the Datasmusher service.  It will check not only that create-through-delete actually work, storing and receiving data from our database, but also that the values return as expected.  Scaling will entail purchasing more dyno's to increase site reliability, but also refining the mapping algorithm and inner working of Datasmusher to loading and converting data is less expensive.</p>
+              <p><a class="btn btn-lg btn-primary" href="#scale-feature" role="button">Learn more</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+    </div>
+    <div class="container marketing">
+
+      <!-- START THE FEATURETTES -->
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette" id="map-feature">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Mapping Headers <span class="text-muted">Column Logic</span></h2>
+          <p class="lead">Datasmusher parses the strings of the column headers supplied or entered by the user and maps them to our column format. Since our columns are well-defined, the algorithm looks for strings in the headers that match a particular field, and does logic to determine whether cells within that column map one-to-one, one-to-many, or combine with others to form one column in Datasmusher's stores.</p>
+        </div>
+        <div class="col-md-5">
+          <%= image_tag ("Mapped Columns.png") , class: "featurette-image img-responsive" , data_src: "holder.js/500x500/auto" %>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette" id="load-feature">
+        <div class="col-md-5">
+          <%= image_tag ("Mapped Data.png") , class: "featurette-image img-responsive" , data_src: "holder.js/500x500/auto" %>
+        </div>
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Load & Convert <span class="text-muted">Bringing the data in.</span></h2>
+          <p class="lead">Once the mapping function is generated, Datasmusher goes row-by-row, cell-by-cell in the data and stores a new <code>Test_Score</code> in one pass-through.  This way we are only converting and storing the data once.  This method will also check for improper formats in the beginning of its method and skip over any bad data.  Future versions may also attempt to convert malformed data.</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette" id="display-feature">
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Display <span class="text-muted">Presenting our data.</span></h2>
+          <p class="lead"> Each <code>School</code> will have views which list out its <code>Test_Score</code>s in a grid that pulls values directly from Datasmusher's database.  This will only display rows or <code>Test_Score</code>s that have been created successfully.</p>
+        </div>
+        <div class="col-md-5">
+           <%= image_tag ("Display Data.png") , class: "featurette-image img-responsive" , data_src: "holder.js/500x500/auto" %>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette" id="scale-feature">
+        <div class="col-md-5">
+           <%= image_tag ("Scale Data.png") , class: "featurette-image img-responsive" , data_src: "holder.js/500x500/auto" %>
+        </div>        
+        <div class="col-md-7">
+          <h2 class="featurette-heading">Testing and Scaling <span class="text-muted">Smushing more and more data.</span></h2>
+          <p class="lead">The prototype will build on the existing Rails test suite to run through each of the basic <code>CRUD</code> methods for schools and test scores.  Manual testing and automated testing can also make sure the functionality of the service is working correctly.  As for scaling, purchasing more space, and perhaps restructuring the product to handle header conversion/mapping differently are plans for the future.  Generating the column-mapping function at runtime for every new set of inputs can be slow or inaccurate and make for a poor user experience.  Future models may request that the user pre-process their own headers to a middle format, selecting from a predefined list, to make the data conversion process go more smoothly.</p>
+        </div>
+      </div>
+
+      <hr class="featurette-divider">
+
+      <!-- /END THE FEATURETTES -->
+
+    </div>
+
+</div>

@@ -1,6 +1,28 @@
-<h1>Editing school</h1>
+<h1>Editing School</h1>
 
 <%= render 'form' %>
+
+<table class="container-fluid">
+	<h1>Test Scores</h1>
+  <thead>
+    <tr>
+      <th>Student ID</th>
+      <th>Subject</th>
+      <th>Score</th>
+    </tr>
+  </thead>
+
+  <tbody>
+  	<% @subjects = ["Math","Science","Reading","Spanish"] %>
+    <% 10.times do %>
+      <tr>
+        <td><input type="text" value="<%= 100000+rand(199999) %>"/></td>
+        <td><input type="text" value="<%= @subjects.sample %>"/></td>
+        <td><input type="text" value="<%= 65+rand(35) %>"/></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Show', @school %> |
 <%= link_to 'Back', schools_path %>
