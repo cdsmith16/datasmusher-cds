@@ -1,28 +1,18 @@
-== README
+= DataSmusher
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Datasmusher, hosted live on (Heroku)[http://datasmusher-cds.herokuapp.com/], is a 2014 project I did in Ruby on Rails towards the conclusion of taking Mattan Griffel's course (One Month Rails)[https://onemonth.com/courses/rails].
 
-Things you may want to cover:
+== About
 
-* Ruby version
+I wrote Datasmusher as prototype for an edtech company in 2014. The Datasmusher prototype is a basic webapp built using the Ruby on Rails framework, Bootstrap stylings, and hosted on Heroku servers with Postresql database. The examples use "School" as the main model, and each "School" has many "Test_Scores" which can be added, updated or deleted. Each "School" can also be created, updated or deleted.
 
-* System dependencies
+== Firsts
 
-* Configuration
+This projects was my first experience with the following, and thus a significant step in my self-teaching after PM-ing at a major operating system team, and prior to teaching introductory Java and working as a consultant engineer in multiple startups.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- Heroku
+- Postgres
+- Publically hosted HTML
+- Ruby, Rails, and generated html
+- Bootstrap & SASS
+- Tableau (the assignment involved parsing and reviewing some data in Tableau specifically)
